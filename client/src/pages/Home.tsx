@@ -4,6 +4,7 @@ import { Copy, TrendingUp, Users, Gift, Wallet, Download, Upload, Globe } from "
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslations, type Language } from "@/lib/translations";
+import { Link } from "wouter";
 
 /**
  * Design Philosophy: Premium Investment Dashboard
@@ -135,10 +136,12 @@ export default function Home() {
             <Upload className="w-5 h-5" />
             {t.buttons.depositNow}
           </Button>
-          <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white h-14 text-lg font-semibold rounded-lg flex items-center justify-center gap-2">
-            <Download className="w-5 h-5" />
-            {t.buttons.withdrawFunds}
-          </Button>
+          <Link href="/withdraw">
+            <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white h-14 text-lg font-semibold rounded-lg flex items-center justify-center gap-2">
+              <Download className="w-5 h-5" />
+              {t.buttons.withdrawFunds}
+            </Button>
+          </Link>
         </div>
 
         {/* Wallet Addresses */}

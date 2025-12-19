@@ -1,6 +1,13 @@
 export type Language = 'ar' | 'en' | 'tr';
 
 export interface Translations {
+  nav: {
+    home: string;
+    work: string;
+    vip: string;
+    team: string;
+    profile: string;
+  };
   header: {
     platformName: string;
     goldStandard: string;
@@ -22,6 +29,48 @@ export interface Translations {
     lifetime: string;
     active: string;
     earned: string;
+    teamVolume: string;
+    accumulatedWithdrawal: string;
+    accumulatedRecharge: string;
+  };
+  withdraw: {
+    title: string;
+    availableAssets: string;
+    selectNetwork: string;
+    withdrawalAddress: string;
+    addressPlaceholder: string;
+    withdrawalAmount: string;
+    amountPlaceholder: string;
+    all: string;
+    minWithdrawal: string;
+    maxWithdrawal: string;
+    securityPassword: string;
+    passwordPlaceholder: string;
+    fees: string;
+    actualArrival: string;
+    confirm: string;
+    reminderTitle: string;
+    reminderText: string;
+  };
+  profile: {
+    officialWebsite: string;
+    loginPassword: string;
+    securityPassword: string;
+    records: string;
+    helpCenter: string;
+    customerService: string;
+    changeLanguage: string;
+    notifications: string;
+    downloadApp: string;
+    logout: string;
+  };
+  work: {
+    title: string;
+    startWork: string;
+    working: string;
+    completed: string;
+    nextWorkIn: string;
+    description: string;
   };
   buttons: {
     depositNow: string;
@@ -87,6 +136,13 @@ export interface Translations {
 
 const translations: Record<Language, Translations> = {
   ar: {
+    nav: {
+      home: 'بيت',
+      work: 'ترقية',
+      vip: 'كبار الشخصيات',
+      team: 'ادعو أصدقاء',
+      profile: 'أنا',
+    },
     header: {
       platformName: 'أونصة',
       goldStandard: 'معيار الذهب للاستثمار',
@@ -108,6 +164,48 @@ const translations: Record<Language, Translations> = {
       lifetime: 'مدى الحياة',
       active: 'نشطة',
       earned: 'المكتسبة',
+      teamVolume: 'الحجم الإجمالي للفريق',
+      accumulatedWithdrawal: 'الانسحاب التراكمي',
+      accumulatedRecharge: 'التغذية التراكمية',
+    },
+    withdraw: {
+      title: 'ينسحب',
+      availableAssets: 'الأصول المتاحة حاليا',
+      selectNetwork: 'حدد الشبكة الرئيسية',
+      withdrawalAddress: 'عنوان السحب',
+      addressPlaceholder: 'الإدخال أو الضغط لفترة طويلة للصق عنوان السحب',
+      withdrawalAmount: 'كمية السحب',
+      amountPlaceholder: 'الرجاء إدخال مبلغ التحويل',
+      all: 'الجميع',
+      minWithdrawal: 'الحد الأدنى لمبلغ السحب',
+      maxWithdrawal: 'الحد الأقصى لمبلغ السحب',
+      securityPassword: 'كلمة المرور الأمن',
+      passwordPlaceholder: 'كلمة المرور الأمن',
+      fees: 'مصاريف',
+      actualArrival: 'الوصول الفعلي',
+      confirm: 'يؤاكد',
+      reminderTitle: 'تذكير دافئ',
+      reminderText: 'الحد الأدنى لمبلغ السحب لـ BEP هو 2USDT، والحد الأدنى لمبلغ السحب لـ TRC20 هو 2USDT. وهو يدعم عمليات السحب على مدار 24 ساعة. رسوم السحب هي 5%-20% (نظراً لأنه يجب دفع الضرائب، يلزم دفع رسوم السحب). اعتماداً على الوقت والمنطقة الخاصة بكل بلد، فإن أسرع وقت للسحب هو دقيقة واحدة وأبطأ وقت هو 24 ساعة. يرجى الانتظار بصبر. إذا لم يصل حسابك خلال 24 ساعة، يرجى الاتصال بخدمة العملاء عبر الإنترنت.',
+    },
+    profile: {
+      officialWebsite: 'الموقع الرسمي',
+      loginPassword: 'كلمة سر الدخول',
+      securityPassword: 'كلمة المرور الأمن',
+      records: 'سجل',
+      helpCenter: 'مركز المساعدة',
+      customerService: 'اتصل بخدمة العملاء',
+      changeLanguage: 'تبديل اللغة',
+      notifications: 'إشعار',
+      downloadApp: 'تحميل التطبيق',
+      logout: 'تسجيل خروج',
+    },
+    work: {
+      title: 'واجهة العمل',
+      startWork: 'ابدأ العمل',
+      working: 'جاري العمل...',
+      completed: 'تم العمل بنجاح',
+      nextWorkIn: 'العمل القادم خلال',
+      description: 'انقر لبدء مهمتك اليومية. سيستغرق الأمر 5 ثوانٍ لإكمال المهمة وإضافة الأرباح إلى محفظتك.',
     },
     buttons: {
       depositNow: 'إيداع الآن',
@@ -171,6 +269,13 @@ const translations: Record<Language, Translations> = {
     },
   },
   en: {
+    nav: {
+      home: 'Home',
+      work: 'Upgrade',
+      vip: 'VIP',
+      team: 'Invite',
+      profile: 'Me',
+    },
     header: {
       platformName: 'ONSA',
       goldStandard: 'Gold Standard Investment',
@@ -192,6 +297,48 @@ const translations: Record<Language, Translations> = {
       lifetime: 'Lifetime',
       active: 'Active',
       earned: 'Earned',
+      teamVolume: 'Total Team Volume',
+      accumulatedWithdrawal: 'Accumulated Withdrawal',
+      accumulatedRecharge: 'Accumulated Recharge',
+    },
+    withdraw: {
+      title: 'Withdraw',
+      availableAssets: 'Currently Available Assets',
+      selectNetwork: 'Select Main Network',
+      withdrawalAddress: 'Withdrawal Address',
+      addressPlaceholder: 'Enter or long press to paste withdrawal address',
+      withdrawalAmount: 'Withdrawal Amount',
+      amountPlaceholder: 'Please enter transfer amount',
+      all: 'All',
+      minWithdrawal: 'Min Withdrawal Amount',
+      maxWithdrawal: 'Max Withdrawal Amount',
+      securityPassword: 'Security Password',
+      passwordPlaceholder: 'Security Password',
+      fees: 'Fees',
+      actualArrival: 'Actual Arrival',
+      confirm: 'Confirm',
+      reminderTitle: 'Warm Reminder',
+      reminderText: 'The minimum withdrawal amount for BEP is 2USDT, and the minimum withdrawal amount for TRC20 is 2USDT. It supports 24-hour withdrawals. Withdrawal fees are 5%-20% (since taxes must be paid, withdrawal fees are required). Depending on the time and region of each country, the fastest withdrawal time is 1 minute and the slowest time is 24 hours. Please wait patiently. If your account does not arrive within 24 hours, please contact online customer service.',
+    },
+    profile: {
+      officialWebsite: 'Official Website',
+      loginPassword: 'Login Password',
+      securityPassword: 'Security Password',
+      records: 'Records',
+      helpCenter: 'Help Center',
+      customerService: 'Contact Customer Service',
+      changeLanguage: 'Change Language',
+      notifications: 'Notifications',
+      downloadApp: 'Download App',
+      logout: 'Logout',
+    },
+    work: {
+      title: 'Work Interface',
+      startWork: 'Start Work',
+      working: 'Working...',
+      completed: 'Work Completed',
+      nextWorkIn: 'Next Work In',
+      description: 'Click to start your daily task. It will take 5 seconds to complete the task and add profits to your wallet.',
     },
     buttons: {
       depositNow: 'Deposit Now',
@@ -255,6 +402,13 @@ const translations: Record<Language, Translations> = {
     },
   },
   tr: {
+    nav: {
+      home: 'Ev',
+      work: 'Yükselt',
+      vip: 'VIP',
+      team: 'Davet Et',
+      profile: 'Ben',
+    },
     header: {
       platformName: 'ONSA',
       goldStandard: 'Altın Standardı Yatırım',
@@ -276,6 +430,48 @@ const translations: Record<Language, Translations> = {
       lifetime: 'Yaşam Boyu',
       active: 'Aktif',
       earned: 'Kazanılan',
+      teamVolume: 'Toplam Takım Hacmi',
+      accumulatedWithdrawal: 'Birikmiş Çekim',
+      accumulatedRecharge: 'Birikmiş Yükleme',
+    },
+    withdraw: {
+      title: 'Geri Çekil',
+      availableAssets: 'Şu Anda Mevcut Varlıklar',
+      selectNetwork: 'Ana Ağı Seçin',
+      withdrawalAddress: 'Çekim Adresi',
+      addressPlaceholder: 'Çekim adresini girin veya yapıştırmak için uzun basın',
+      withdrawalAmount: 'Çekim Tutarı',
+      amountPlaceholder: 'Lütfen transfer tutarını girin',
+      all: 'Hepsi',
+      minWithdrawal: 'Min Çekim Tutarı',
+      maxWithdrawal: 'Maks Çekim Tutarı',
+      securityPassword: 'Güvenlik Şifresi',
+      passwordPlaceholder: 'Güvenlik Şifresi',
+      fees: 'Ücretler',
+      actualArrival: 'Gerçek Varış',
+      confirm: 'Onayla',
+      reminderTitle: 'Sıcak Hatırlatma',
+      reminderText: 'BEP için minimum çekim tutarı 2USDT, TRC20 için minimum çekim tutarı 2USDT\'dir. 24 saatlik çekimleri destekler. Çekim ücretleri %5-%20\'dir (vergiler ödenmesi gerektiğinden çekim ücretleri gereklidir). Her ülkenin saatine ve bölgesine bağlı olarak, en hızlı çekim süresi 1 dakika, en yavaş süre 24 saattir. Lütfen sabırla bekleyin. Hesabınız 24 saat içinde gelmezse, lütfen çevrimiçi müşteri hizmetleriyle iletişime geçin.',
+    },
+    profile: {
+      officialWebsite: 'Resmi Web Sitesi',
+      loginPassword: 'Giriş Şifresi',
+      securityPassword: 'Güvenlik Şifresi',
+      records: 'Kayıtlar',
+      helpCenter: 'Yardım Merkezi',
+      customerService: 'Müşteri Hizmetleriyle İletişime Geçin',
+      changeLanguage: 'Dili Değiştir',
+      notifications: 'Bildirimler',
+      downloadApp: 'Uygulamayı İndir',
+      logout: 'Çıkış Yap',
+    },
+    work: {
+      title: 'Çalışma Arayüzü',
+      startWork: 'Çalışmaya Başla',
+      working: 'Çalışılıyor...',
+      completed: 'Çalışma Tamamlandı',
+      nextWorkIn: 'Sonraki Çalışma',
+      description: 'Günlük görevinizi başlatmak için tıklayın. Görevi tamamlamak ve cüzdanınıza kâr eklemek 5 saniye sürecektir.',
     },
     buttons: {
       depositNow: 'Şimdi Yatırın',

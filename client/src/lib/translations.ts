@@ -127,6 +127,20 @@ export interface Translations {
     availability: string;
     copyright: string;
   };
+  auth: {
+    login: string;
+    register: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    noAccount: string;
+    haveAccount: string;
+    loginSuccess: string;
+    registerSuccess: string;
+    invalidCredentials: string;
+    welcomeBack: string;
+    createAccount: string;
+  };
   language: {
     ar: string;
     en: string;
@@ -262,6 +276,20 @@ const translations: Record<Language, Translations> = {
       availability: 'متاح 24/7',
       copyright: '© 2025 منصة أونصة. جميع الحقوق محفوظة. | معيار الذهب للاستثمار',
     },
+    auth: {
+      login: 'تسجيل الدخول',
+      register: 'إنشاء حساب',
+      email: 'البريد الإلكتروني',
+      password: 'كلمة المرور',
+      confirmPassword: 'تأكيد كلمة المرور',
+      noAccount: 'ليس لديك حساب؟',
+      haveAccount: 'لديك حساب بالفعل؟',
+      loginSuccess: 'تم تسجيل الدخول بنجاح',
+      registerSuccess: 'تم إنشاء الحساب بنجاح',
+      invalidCredentials: 'بيانات الدخول غير صحيحة',
+      welcomeBack: 'مرحباً بعودتك',
+      createAccount: 'ابدأ رحلتك الاستثمارية معنا',
+    },
     language: {
       ar: 'العربية',
       en: 'الإنجليزية',
@@ -395,6 +423,20 @@ const translations: Record<Language, Translations> = {
       availability: 'Available 24/7',
       copyright: '© 2025 ONSA Platform. All rights reserved. | Gold Standard Investment',
     },
+    auth: {
+      login: 'Login',
+      register: 'Register',
+      email: 'Email',
+      password: 'Password',
+      confirmPassword: 'Confirm Password',
+      noAccount: "Don't have an account?",
+      haveAccount: 'Already have an account?',
+      loginSuccess: 'Login successful',
+      registerSuccess: 'Registration successful',
+      invalidCredentials: 'Invalid credentials',
+      welcomeBack: 'Welcome Back',
+      createAccount: 'Start your investment journey',
+    },
     language: {
       ar: 'Arabic',
       en: 'English',
@@ -471,7 +513,7 @@ const translations: Record<Language, Translations> = {
       working: 'Çalışılıyor...',
       completed: 'Çalışma Tamamlandı',
       nextWorkIn: 'Sonraki Çalışma',
-      description: 'Günlük görevinizi başlatmak için tıklayın. Görevi tamamlamak ve cüzdanınıza kâr eklemek 5 saniye sürecektir.',
+      description: 'Günlük görevinizi başlatmak için tıklayın. Görevi tamamlamak ve cüzدانınıza kâr eklemek 5 saniye sürecektir.',
     },
     buttons: {
       depositNow: 'Şimdi Yatırın',
@@ -527,6 +569,20 @@ const translations: Record<Language, Translations> = {
       email: 'E-posta: support@onsa.com',
       availability: '24/7 Kullanılabilir',
       copyright: '© 2025 ONSA Platformu. Tüm hakları saklıdır. | Altın Standardı Yatırım',
+    },
+    auth: {
+      login: 'Giriş Yap',
+      register: 'Kayıt Ol',
+      email: 'E-posta',
+      password: 'Şifre',
+      confirmPassword: 'Şifreyi Onayla',
+      noAccount: 'Hesabınız yok mu?',
+      haveAccount: 'Zaten hesabınız var mı?',
+      loginSuccess: 'Giriş başarılı',
+      registerSuccess: 'Kayıt başarılı',
+      invalidCredentials: 'Geçersiz bilgiler',
+      welcomeBack: 'Tekrar Hoş Geldiniz',
+      createAccount: 'Yatırım yolculuğunuza başlayın',
     },
     language: {
       ar: 'Arapça',

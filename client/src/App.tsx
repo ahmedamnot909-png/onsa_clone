@@ -5,7 +5,10 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider, useLanguage } from "./contexts/LanguageContext";
+import { NotificationProvider } from "./contexts/NotificationContext";
+import { NotificationContainer } from "./components/NotificationContainer";
 import Home from "./pages/Home";
+import Auth from "./pages/Auth";
 import Withdraw from "./pages/Withdraw";
 import Profile from "./pages/Profile";
 import Work from "./pages/Work";
@@ -47,9 +50,13 @@ function BottomNav() {
 }
 
 function Router() {
+  const [location] = useLocation();
+  const isAuthPage = location === '/auth';
+
   return (
     <div className="pb-16">
       <Switch>
+        <Route path="/auth" component={Auth} />
         <Route path="/" component={Home} />
         <Route path="/withdraw" component={Withdraw} />
         <Route path="/profile" component={Profile} />
@@ -57,7 +64,7 @@ function Router() {
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
-      <BottomNav />
+      {!isAuthPage && <BottomNav />}
     </div>
   );
 }
@@ -67,10 +74,13 @@ function App() {
     <ErrorBoundary>
       <LanguageProvider>
         <ThemeProvider defaultTheme="dark">
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
+          <NotificationProvider>
+            <TooltipProvider>
+              <Toaster />
+              <NotificationContainer />
+              <Router />
+            </TooltipProvider>
+          </NotificationProvider>
         </ThemeProvider>
       </LanguageProvider>
     </ErrorBoundary>

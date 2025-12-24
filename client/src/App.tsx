@@ -19,7 +19,6 @@ function BottomNav() {
   const [location] = useLocation();
   const { language, isRTL } = useLanguage();
   const t = getTranslations(language);
-
   const navItems = [
     { path: "/", icon: <HomeIcon className="w-6 h-6" />, label: t.nav.home },
     { path: "/work", icon: <Zap className="w-6 h-6" />, label: t.nav.work },
@@ -28,6 +27,7 @@ function BottomNav() {
     { path: "/profile", icon: <User className="w-6 h-6" />, label: t.nav.profile },
   ];
 
+  // make sure to consider if you need authentication for certain routes
   return (
     <nav className={`fixed bottom-0 left-0 right-0 bg-[#1e293b] border-t border-slate-800 px-2 py-2 flex justify-around items-center z-50 ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       {navItems.map((item) => {

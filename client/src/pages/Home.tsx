@@ -1,3 +1,4 @@
+import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Copy, TrendingUp, Users, Gift, Wallet, Download, Upload, Globe } from "lucide-react";
@@ -13,20 +14,20 @@ import { Link, useLocation } from "wouter";
  * - Layout: Card-based grid with clear hierarchy
  */
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const { language, setLanguage, isRTL } = useLanguage();
   const t = getTranslations(language);
   const [copySuccess, setCopySuccess] = useState<string | null>(null);
-  const [user, setUser] = useState<any>(null);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("onsa_current_user") || "null");
-    if (!currentUser) {
+    if (!user) {
       setLocation("/auth");
-      return;
     }
-    setUser(currentUser);
-  }, [setLocation]);
+  }, [user, setLocation]);
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -34,7 +35,7 @@ export default function Home() {
     setTimeout(() => setCopySuccess(null), 2000);
   };
 
-  if (!user) return null;
+  if (!user || loading) return null;
 
   // Profit rates based on deposit amount
   const profitRates = [

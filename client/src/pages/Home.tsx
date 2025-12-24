@@ -6,18 +6,10 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslations, type Language } from "@/lib/translations";
 import { Link, useLocation } from "wouter";
+import { WheelOfFortune } from "@/components/WheelOfFortune";
 
-/**
- * Design Philosophy: Premium Investment Dashboard
- * - Color Scheme: Deep blue (#1a1f3a) with gold accents (#d4af37)
- * - Typography: Bold headings, clean sans-serif body
- * - Layout: Card-based grid with clear hierarchy
- */
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
+  const { user, loading } = useAuth();
   const { language, setLanguage, isRTL } = useLanguage();
   const t = getTranslations(language);
   const [copySuccess, setCopySuccess] = useState<string | null>(null);
@@ -37,7 +29,6 @@ export default function Home() {
 
   if (!user || loading) return null;
 
-  // Profit rates based on deposit amount
   const profitRates = [
     { range: "$50 - $500", min: 1.8, max: 3.2 },
     { range: "$500 - $5,000", min: 2.5, max: 3.6 },
@@ -45,14 +36,13 @@ export default function Home() {
     { range: "$10,000 - $20,000", min: 3.3, max: 5.0 },
   ];
 
-  // Wheel of fortune prizes
   const wheelPrizes = [
-    { prize: "$1", count: 10 },
-    { prize: "$5", count: 10 },
-    { prize: "$10", count: 10 },
-    { prize: "$20", count: 3, note: "from 30" },
-    { prize: "$50", count: 1, note: "from 50" },
-    { prize: "$100", count: 1, note: "from 100" },
+    { id: 0, label: "$1", color: "#3B82F6", value: "$1" },
+    { id: 1, label: "$5", color: "#8B5CF6", value: "$5" },
+    { id: 2, label: "$10", color: "#EC4899", value: "$10" },
+    { id: 3, label: "$20", color: "#F59E0B", value: "$20" },
+    { id: 4, label: "$50", color: "#10B981", value: "$50" },
+    { id: 5, label: "$100", color: "#D4AF37", value: "$100" },
   ];
 
   return (
@@ -70,7 +60,6 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            {/* Language Selector */}
             <div className="flex items-center gap-2 bg-slate-800/50 rounded-lg p-2 border border-gold/20">
               <Globe className="w-4 h-4 text-gold" />
               <select
@@ -250,24 +239,15 @@ export default function Home() {
           </div>
         </Card>
 
-        {/* Wheel of Fortune */}
-        <Card className="bg-slate-800/50 border-gold/20 p-6 mb-8">
-          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Gift className="w-5 h-5 text-gold" />
-            {t.wheelOfFortune.title}
-          </h3>
-          <p className="text-sm text-gray-400 mb-4">{t.wheelOfFortune.minimumDeposit}</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-            {wheelPrizes.map((item, idx) => (
-              <div key={idx} className="bg-slate-900/50 p-3 rounded-lg text-center">
-                <p className="text-gold font-bold">{item.prize}</p>
-                <p className="text-xs text-gray-400">x{item.count}</p>
-                {item.note && <p className="text-[10px] text-gold">{t.wheelOfFortune.from} {item.note}</p>}
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-gray-500">{t.wheelOfFortune.description}</p>
-        </Card>
+        {/* Wheel of Fortune Interactive */}
+        <WheelOfFortune
+          prizes={wheelPrizes}
+          minDeposit={150}
+          currentDeposit={user.balance}
+          onSpinComplete={(prize) => {
+            console.log("Won:", prize);
+          }}
+        />
       </main>
     </div>
   );

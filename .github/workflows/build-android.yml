@@ -37,10 +37,6 @@ jobs:
     - name: Set up Android SDK
       uses: android-actions/setup-android@v2
 
-    - name: Sync Capacitor
-      run: |
-        npx cap sync android
-
     - name: Build APK
       run: |
         cd android
